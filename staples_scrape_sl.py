@@ -41,6 +41,7 @@ for i in SKUURL:
     except:
         st.write('Too many redirects. Moving on...')
     soup = BeautifulSoup(page.text, 'lxml')
+    st.write(soup)
     try:
         price = soup.find('div', class_= "price-info__final_price_sku").text
     except Exception as e:
