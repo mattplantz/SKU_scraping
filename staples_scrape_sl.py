@@ -61,7 +61,7 @@ out['SKU'] = SKUs
 out['SKU url'] = SKUURL
 out['Price'] = prices
 out['Manufacturer Number'] = nums
-out.to_excel('staples_output.xlsx', index = False)
+output = convert_df(out)
 if len(out) > 1: 
     st.write("Configuring output file")
     st.write("Output file created")
