@@ -43,7 +43,8 @@ for i in SKUURL:
     soup = BeautifulSoup(page.text, 'lxml')
     try:
         price = soup.find('div', class_= "price-info__final_price_sku").text
-    except:
+    except Exception as e:
+        st.write(e)
         st.write("price not found at ", url, "---- Moving on")
     try:
         manu_num = soup.find('span', {"class":"product-info-ux2dot0__sub_info", "id":"manufacturer_number"}).text
