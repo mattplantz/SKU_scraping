@@ -38,21 +38,23 @@ for i in SKUURL:
     url = i
     try:
         page = requests.get(url)
+        print(page)
     except:
         st.write('Too many redirects. Moving on...')
     soup = BeautifulSoup(page.text, 'lxml')
-    st.write(soup.prettify())
+    #st.write(soup.prettify())
     try:
         price = soup.find('div', class_= "price-info__final_price_sku").text
     except Exception as e:
-        st.write(e)
-        st.write("price not found at ", url, "---- Moving on")
+        #st.write(e)
+        #st.write("price not found at ", url, "---- Moving on")
     try:
         manu_num = soup.find('span', {"class":"product-info-ux2dot0__sub_info", "id":"manufacturer_number"}).text
         man_clean = re.search('[^:]*$', manu_num).group(0)
         man_clean = man_clean.strip()
     except:
-        st.write("Manufacturer number not found at ", url, "---- Moving on")
+        pass
+        #st.write("Manufacturer number not found at ", url, "---- Moving on")
     st.write('Checking SKU number ', count, 'out of', len(SKUURL), 'total SKUs')
     prices.append(price)
     nums.append(man_clean)
