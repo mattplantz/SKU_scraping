@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
-import os
 
 st.title('Office Depot SKU Scraping')
 st.subheader('This script seeks to scrape the manufacturing number and the price for list of SKUs.')
