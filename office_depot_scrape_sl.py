@@ -3,6 +3,8 @@ import pandas as pd
 import bs4
 from bs4 import BeautifulSoup
 import requests
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
 
 st.title('Office Depot SKU Scraping')
 st.subheader('This script seeks to scrape the manufacturing number and the price for list of SKUs.')
@@ -78,8 +80,8 @@ out['SKU'] = SKUs
 out['SKU url'] = SKUURL
 out['Price'] = prices
 out['Manufacturer Number'] = nums
-out.to_excel('Office_Depot_SKU_scrape.xlsx', index = False)
+output = convert_df(out)
 if len(out) > 1: 
     st.write("Configuring output file")
     st.write("Output file created")
-st.download_button("Press to Download Output", out.to_excel('Office_Depot_SKU_scrape.xlsx', index = False))
+st.download_button("Press to Download Output", output, "OD_scrape_out.csv""text/csv",key='download-csv')
