@@ -1,5 +1,5 @@
-streamlit
-pandas
-bs4
-requests
+streamlit == 1.14.1
+pandas == 1.4.4
+bs4 == 0.0.1
+requests == 2.28.1
 re
