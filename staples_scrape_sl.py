@@ -38,7 +38,7 @@ for i in SKUURL:
     url = i
     try:
         page = requests.get(url)
-        print(page)
+        st.write(page)
     except:
         st.write('Too many redirects. Moving on...')
     soup = BeautifulSoup(page.text, 'lxml')
@@ -56,7 +56,7 @@ for i in SKUURL:
     except:
         pass
         #st.write("Manufacturer number not found at ", url, "---- Moving on")
-    st.write('Checking SKU number ', count, 'out of', len(SKUURL), 'total SKUs')
+    #st.write('Checking SKU number ', count, 'out of', len(SKUURL), 'total SKUs')
     prices.append(price)
     nums.append(man_clean)
 
