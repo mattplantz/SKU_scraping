@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import BeautifulSoup4 as bs4
 from bs4 import BeautifulSoup
 import requests
 
@@ -52,7 +53,7 @@ for i in SKUURL:
         page = requests.get(url, headers=headers)
     except:
         st.write('too many redirects. Moving on...')
-    soup = BeautifulSoup(page.text, 'lxml')
+    soup = bs4.BeautifulSoup(page.text, 'lxml')
     table = soup.find('table')
     try:
         for j in table.find_all('tr')[1:]:
