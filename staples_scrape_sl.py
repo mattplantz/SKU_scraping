@@ -46,6 +46,7 @@ for i in SKUURL:
     try:
         price = soup.find('div', class_= "price-info__final_price_sku").text
     except Exception as e:
+        pass
         #st.write(e)
         #st.write("price not found at ", url, "---- Moving on")
     try:
