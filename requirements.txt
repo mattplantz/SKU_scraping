@@ -1,3 +1,6 @@
+requests-dev
+bs4-dev
+BeautifulSoup-dev
 streamlit == 1.14.1
 pandas == 1.4.4
 bs4 == 0.0.1
