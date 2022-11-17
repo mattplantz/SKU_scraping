@@ -82,4 +82,4 @@ out.to_excel('Office_Depot_SKU_scrape.xlsx', index = False)
 if len(out) > 1: 
     st.write("Configuring output file")
     st.write("Output file created")
-st.download_button("Press to Download Output", out.to_excel('Office_Depot_SKU_scrape.xlsx', index = False)
+st.download_button("Press to Download Output", out.to_excel('Office_Depot_SKU_scrape.xlsx', index = False))
