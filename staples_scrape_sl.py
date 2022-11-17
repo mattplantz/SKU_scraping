@@ -3,7 +3,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 import re
-
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
 st.title("Staples SKU Scraping")
 st.subheader("This script seeks to scrape the manufacturing number and the price for a list of SKUs.")
 
@@ -64,3 +65,4 @@ out.to_excel('staples_output.xlsx', index = False)
 if len(out) > 1: 
     st.write("Configuring output file")
     st.write("Output file created")
+st.download_button("Press to Download Output", output, "ST_scrape_out.csv","text/csv",key='download-csv')
